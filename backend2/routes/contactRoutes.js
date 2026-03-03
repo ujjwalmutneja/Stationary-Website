@@ -26,7 +26,7 @@ router.post("/", async (req, res) => {
     res.json(contact);
 
   } catch (err) {
-    res.status(500).json({ message: "Error sending message" });
+    res.status(500).json({ message: err.message });
   }
 });
 

@@ -732,12 +732,12 @@ const Home = () => {
  useEffect(() => {
   const fetchAnnouncement = async () => {
     try {
-      const res = await fetch("http://localhost:8000/api/announcement/active");
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/announcement/active`);
       const data = await res.json();
 
       if (!data) return;
 
-      const seenId = localStorage.getItem("seenAnnouncement");
+      
 
       setAnnouncement(data);
 

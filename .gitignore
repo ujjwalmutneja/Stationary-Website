@@ -2,6 +2,6 @@ backend2/node_modules/
 frontend/node_modules/
 
 # Environment files
-backend/.env
+backend2/.env
 frontend/.env
 

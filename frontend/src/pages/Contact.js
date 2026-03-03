@@ -31,7 +31,7 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      const response = await axios.post(`${API}/contact`, formData);
+      const response = await axios.post(`${API}/contact/c`, formData);
       
       if (response.status === 200) {
         toast.success('Message sent successfully! We\'ll get back to you soon.');

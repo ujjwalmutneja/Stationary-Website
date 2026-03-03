@@ -24,10 +24,14 @@ router.post("/c", async (req, res) => {
       <p><strong>Message:</strong> ${contact.message}</p>
     `;
 
-    await sendEmail(
-      `New Message from ${contact.name}`,
-      htmlContent
-    );
+    // await sendEmail(
+    //   `New Message from ${contact.name}`,
+    //   htmlContent
+    // );
+    sendEmail( `New Message from ${contact.name}`,
+      htmlContent)
+  .then(() => console.log("Email sent successfully"))
+  .catch(err => console.log("Email error:", err));
 
     res.json(contact);
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Clock, Navigation, Mail } from 'lucide-react';
+import { MapPin, Phone, Clock, Navigation } from 'lucide-react';
 
 const VisitUs = () => {
   return (

@@ -5,6 +5,12 @@ const sendEmail = require("../utils/sendEmail");
 
 // CREATE CONTACT MESSAGE
 router.post("/", async (req, res) => {
+  await new Contact(req.body).save();
+  res.json({ success: true });
+});
+
+
+router.post("/c", async (req, res) => {
   try {
     const contact = new Contact(req.body);
     await contact.save();

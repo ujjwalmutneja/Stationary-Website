@@ -892,9 +892,14 @@ const Home = () => {
               {announcement.title}
             </h2>
 
-            <p className="text-gray-600 text-center mb-4">
-              {announcement.message}
-            </p>
+          {announcement.message.split('\\n').map((line, i) => (
+  <p
+    key={i}
+    className="text-gray-600 text-center text-[15px] leading-7 mb-2"
+  >
+    {line}
+  </p>
+))}
 
             {timeLeft && (
               <div className="text-center text-red-500 font-semibold mb-6">

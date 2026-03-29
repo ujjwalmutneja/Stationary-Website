@@ -836,6 +836,7 @@ const Home = () => {
       image: 'https://images.unsplash.com/photo-1633707392225-d883c8cd3e99?crop=entropy&cs=srgb&fm=jpg&q=85',
       icon: BookOpen,
       color: 'text-blue-600',
+       link: '/pseb-books', 
       items: ['Subject Books', 'Guides & Solutions', 'Guess Papers', 'Lab Manuals'],
     },
     {
@@ -844,6 +845,7 @@ const Home = () => {
       image: 'https://images.unsplash.com/photo-1768066760498-d0e552612aba?crop=entropy&cs=srgb&fm=jpg&q=85',
       icon: Palette,
       color: 'text-orange-600',
+        link: '/projects',
       items: ['Paint & Brushes', 'Canvas & Paper', 'Craft Materials', 'Art Kits'],
     },
     {
@@ -852,6 +854,7 @@ const Home = () => {
       image: 'https://images.unsplash.com/photo-1711560217836-f42ac4a11a4f?crop=entropy&cs=srgb&fm=jpg&q=85',
       icon: Briefcase,
       color: 'text-green-600',
+        link: '/projects',
       items: ['Holiday Homework', 'Project Models', 'Chart Work', 'Practical Files'],
     },
 {
@@ -860,6 +863,7 @@ const Home = () => {
   image: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?crop=entropy&cs=srgb&fm=jpg&q=85',
   icon: Gift,
   color: 'text-pink-600',
+  link: '/creative-gifts',
   items: [
     'Birthday Gift Packs',
     'Educational Toys',
@@ -1094,6 +1098,7 @@ const Home = () => {
             {products.map((product, index) => {
               const Icon = product.icon;
               return (
+                 <Link to={product.link} key={product.title}>
                 <motion.div
                   key={product.title}
                   variants={fadeInUp}
@@ -1129,6 +1134,7 @@ const Home = () => {
                     </ul>
                   </div>
                 </motion.div>
+                </Link>
               );
             })}
           </motion.div>

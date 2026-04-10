@@ -29,7 +29,7 @@ This project was developed as a **real-world freelance solution** for a bookstor
 - Direct communication features  
 - Real-time promotional banner  
 
----
+
 
 ## ✨ Key Features
 
@@ -37,7 +37,7 @@ This project was developed as a **real-world freelance solution** for a bookstor
 - Display of books, notebooks, stationery, and academic supplies  
 - Clean and structured layout for easy browsing  
 
----
+
 
 ### 📲 Direct Customer Interaction (🔥 Highlight)
 
@@ -56,7 +56,7 @@ This project was developed as a **real-world freelance solution** for a bookstor
   - Direct redirection to store location  
   - Easy navigation for customers  
 
----
+
 
 ### 📢 Real-Time Promotion Banner (🔥 Unique Feature)
 
@@ -65,14 +65,14 @@ This project was developed as a **real-world freelance solution** for a bookstor
 - Improves visibility of important updates  
 - Enhances user engagement on homepage  
 
----
+
 
 ### ⚡ User Experience
 - Fully responsive design  
 - Mobile-first approach  
 - Fast loading and smooth navigation  
 
----
+
 
 ## 📊 Problem → Solution → Impact
 
@@ -92,7 +92,7 @@ Built a modern web platform with:
 - Improved business visibility  
 - Created a strong foundation for future e-commerce  
 
----
+
 
 ## 🛠️ Tech Stack
 
@@ -113,7 +113,7 @@ Built a modern web platform with:
 **Version Control**
 - Git & GitHub  
 
----
+
 
 ## 📸 Screenshots
 

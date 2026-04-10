@@ -1,6 +1,3 @@
-
-**Naresh Book Depot** is a freelance web project built for a local bookstore business.  
-The goal was to create a clean, responsive, and user-friendly platform where customers can easily explore books, stationery items, notebooks, and other academic supplies online.
 # 📚 Naresh Book Depot
 
 > 🚀 Developed a production-ready bookstore website for a real client with direct customer interaction features and real-time promotional capabilities.

@@ -4,7 +4,7 @@
 
 🌐 **Live Demo:** https://naresh-book-depot.vercel.app/
 
----
+
 
 ## 🚀 Overview
 
@@ -12,7 +12,7 @@
 
 The platform enables users to explore books and stationery while providing **multiple direct communication channels** like WhatsApp, call, and inquiry forms — making it easy for customers to connect instantly.
 
----
+
 
 ## 💼 Freelance Project Context
 

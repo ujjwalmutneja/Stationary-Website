@@ -10,17 +10,18 @@ if (process.env.REDIS_URL) {
         if (retries > 20) return new Error("Redis connection failed after 20 retries");
         return Math.min(retries * 100, 3000);
       },
-      keepAlive: 5000, // 5 seconds
+      keepAlive: 5000,
       connectTimeout: 10000,
-    }
+    },
+    // Har 30 second mein ek chhota ping bhejega connection check karne ke liye
+    pingInterval: 30000,
   });
 
+  // Saari errors ko silent karte hain jab tak hum manually check na karna chahein
   redisClient.on("error", (err) => {
-    // Only log socket closures in production if they are persistent
-    if (process.env.NODE_ENV === "production") {
-      if (err.message !== "Socket closed unexpectedly") {
-        console.error("Redis Client Error:", err);
-      }
+    // Sirf wahi errors dikhayega jo 'Socket closed' nahi hain
+    if (!err.message.includes("Socket closed")) {
+      console.error("Redis Client Error:", err);
     }
   });
 

@@ -1,29 +1,48 @@
 const redis = require("redis");
 
-const redisClient = redis.createClient({
-  url: process.env.REDIS_URL || "redis://localhost:6379",
-});
+let redisClient;
 
-redisClient.on("error", (err) => {
-  // Silent in local development to avoid terminal spam
-  if (process.env.NODE_ENV === "production") {
-    console.error("Redis Client Error", err);
-  }
-});
-
-redisClient.once("connect", () => console.log("Redis Client Connected"));
-
-(async () => {
-  try {
-    // Agar local par redis nahi hai toh ye error dega, jise hum catch kar lenge
-    await redisClient.connect();
-  } catch (err) {
-    if (process.env.NODE_ENV === "production") {
-      console.error("Could not connect to Redis", err);
-    } else {
-      console.log("Redis not found locally, skipping... (Using MongoDB only)");
+if (process.env.REDIS_URL) {
+  redisClient = redis.createClient({
+    url: process.env.REDIS_URL,
+    socket: {
+      reconnectStrategy: (retries) => {
+        if (retries > 20) return new Error("Redis connection failed after 20 retries");
+        return Math.min(retries * 100, 3000);
+      },
+      keepAlive: 5000, // 5 seconds
+      connectTimeout: 10000,
     }
-  }
-})();
+  });
+
+  redisClient.on("error", (err) => {
+    // Only log socket closures in production if they are persistent
+    if (process.env.NODE_ENV === "production") {
+      if (err.message !== "Socket closed unexpectedly") {
+        console.error("Redis Client Error:", err);
+      }
+    }
+  });
+
+  redisClient.once("connect", () => console.log("Redis Client Connected"));
+
+  (async () => {
+    try {
+      await redisClient.connect();
+    } catch (err) {
+      console.error("Redis Connection Failed:", err.message);
+    }
+  })();
+} else {
+  redisClient = {
+    get: async () => null,
+    set: async () => null,
+    del: async () => null,
+    on: () => { },
+    connect: async () => { },
+    once: () => { },
+  };
+  console.log("Redis URL missing. Running without cache.");
+}
 
 module.exports = redisClient;

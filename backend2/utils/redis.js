@@ -7,7 +7,7 @@ if (process.env.REDIS_URL) {
     url: process.env.REDIS_URL.trim(), // .trim() se extra spaces hat jayenge
     socket: {
       family: 4, // Force IPv4 (Upstash aur Render ke beech DNS timeout issue fix karne ke liye)
-      tls: process.env.REDIS_URL.startsWith('rediss://') ? { rejectUnauthorized: false } : undefined,
+      // rediss:// protocol automatically enables TLS, so we don't need to explicitly pass a tls object
       reconnectStrategy: (retries) => {
         if (retries > 20) return new Error("Redis connection failed after 20 retries");
         return Math.min(retries * 100, 3000);
